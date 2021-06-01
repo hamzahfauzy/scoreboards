@@ -1,0 +1,35 @@
+1. Modul Login admin dan juri
+2. Modul CRUD juri
+3. Modul CRUD peserta lomba
+4. Modul Tampil Hasil Penilaian
+5. Modul Input Nilai Peserta lomba
+
+Database
+users
+- id
+- name
+- email
+- login
+- password
+- level (admin dan juri)
+- created_at
+
+participants
+- id
+- name
+- gender
+- order_number
+- status
+- created_at
+
+valuations
+- id
+- participant_id
+- user_id
+- score
+- created_at
+
+scoreboards
+- id
+- participant_id
+- total_score
