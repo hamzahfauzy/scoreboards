@@ -31,6 +31,24 @@ if(request()->isMethod('POST'))
         ],[
             'id' => $id
         ]);
+
+        // check all valuations
+        $valuations_all = $db->all('valuations',[
+            'participant_id' => $id
+        ]);
+
+        $juri_all = $db->all('users',[
+            'level' => 'juri'
+        ]);
+
+        if(count($valuations_all) == count($juri_all))
+        {
+            $db->update('participants',[
+                'status' => 'selesai'
+            ],[
+                'id' => $id
+            ]);
+        }
         return redirect()->route('juri/peserta')->withMessage('success','Peserta berhasil dinilai!');
     }
     return redirect()->route('juri/peserta')->withMessage('fail','Peserta gagal dinilai!');

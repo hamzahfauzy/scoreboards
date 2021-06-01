@@ -1,15 +1,32 @@
 <?php
+$conn = get_connection();
+$db   = new src\Database($conn);
+
 if(isset($_GET['realtime-request']))
 {
-    $conn = get_connection();
-    $db   = new src\Database($conn);
     
-    $participants = $db->all('participants',[],[
-        'total_score' => 'DESC',
-        'order_number' => 'ASC'
+    $participant = $db->single('participants',[
+        'status' => 'selesai'
     ]);
+    if($participant)
+    {
+        $db->update('participants',[
+            'status' => 'tampil'
+        ],[
+            'id' => $participant->id
+        ]);
+    }
 
-    return $participants;
+    return $participant;
+}
+
+if(isset($_GET['update-view']))
+{
+    $db->update('participants',[
+        'status' => 'finish'
+    ],[
+        'id' => $_GET['id']
+    ]);
 }
 
 return view('default/index');
