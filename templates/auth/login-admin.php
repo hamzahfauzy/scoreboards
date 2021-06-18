@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - Scoreboards App</title>
+    <title>Login Admin - Scoreboards App</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <!-- Bootstrap core CSS -->
@@ -39,7 +39,7 @@
     </head>
     <body class="text-center">
         <main class="form-signin">
-            <form method="post" action="index.php?r=auth/login">
+            <form method="post" action="index.php?r=auth/login-admin">
                 <img class="mb-4" src="<?=base_url()?>/images/logo.png" alt="" width="72">
                 <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -63,28 +63,7 @@
                     <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
-                <div class="form-floating">
-                    <select name="kategori" class="form-control" required>
-                        <option value="">- Pilih -</option>
-                        <?php foreach($categories as $category): ?>
-                        <option value="<?=$category->id?>"><?=$category->name?></option>
-                        <?php endforeach ?>
-                    </select>
-                    <label for="">Kategori Lomba</label>
-                </div>
-                <div class="form-floating">
-                    <select name="juri" class="form-control" required>
-                        <option value="">- Pilih -</option>
-                        <?php foreach([3,5] as $category): ?>
-                        <option value="<?=$category?>"><?=$category?></option>
-                        <?php endforeach ?>
-                    </select>
-                    <label for="">Jumlah Juri</label>
-                </div>
-                <p></p>
                 <button class="w-100 btn btn-lg btn-primary" type="submit" name="do_login" value="true">Sign in</button>
-                <br>
-                <span class="text-center">Login sebagai admin klik <a href="index.php?r=auth/login-admin">disini</a></span>
             </form>
         </main>
     </body>

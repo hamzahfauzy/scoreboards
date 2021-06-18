@@ -18,37 +18,28 @@ if($check)
 if(request()->isMethod('POST'))
 {
     $request = request()->post();
+    $total_score = 0;
+    foreach($request->score as $score)
+        $total_score += $score;
+
+    $total_score /= session()->get('juri');
+
     $valuations    = $db->insert('valuations',[
         'user_id'   => $user->id,
-        'score'     => $request->score,
+        'score'     => $total_score,
+        'score_serialize' => serialize($request->score),
         'participant_id' => $id,
     ]);
 
     if($valuations)
     {
         $db->update('participants',[
-            'total_score' => $participant->total_score+$request->score
+            'total_score' => $total_score,
+            'status'      => 'selesai'
         ],[
             'id' => $id
         ]);
 
-        // check all valuations
-        $valuations_all = $db->all('valuations',[
-            'participant_id' => $id
-        ]);
-
-        $juri_all = $db->all('users',[
-            'level' => 'juri'
-        ]);
-
-        if(count($valuations_all) == count($juri_all))
-        {
-            $db->update('participants',[
-                'status' => 'selesai'
-            ],[
-                'id' => $id
-            ]);
-        }
         return redirect()->route('juri/peserta')->withMessage('success','Peserta berhasil dinilai!');
     }
     return redirect()->route('juri/peserta')->withMessage('fail','Peserta gagal dinilai!');

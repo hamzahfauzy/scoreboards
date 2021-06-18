@@ -10,6 +10,7 @@ if(request()->isMethod('POST'))
     $participant    = $db->update('participants',[
         'name'      => $request->name,
         'gender'    => $request->gender,
+        'category_id'    => $request->category_id,
         'order_number'    => $request->order_number,
     ],[
         'id' => $_GET['id']
@@ -20,4 +21,8 @@ if(request()->isMethod('POST'))
     return redirect()->route('admin/peserta')->withMessage('fail','Data Gagal Diupdate!');
 }
 
-return view('admin/peserta/edit',['participant' => $participant]);
+$categories = $db->all('categories');
+return view('admin/peserta/edit',[
+    'categories' => $categories,
+    'participant' => $participant
+]);

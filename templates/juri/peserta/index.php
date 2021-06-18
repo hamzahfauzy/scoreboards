@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Data Peserta</h1>
+    <h1 class="h2">Data Peserta <?= session()->get('kategori')->name ?></h1>
 </div>
 
 <?php if($msg = session()->get_flash('success')): ?>
@@ -29,7 +29,7 @@
         <tbody>
             <?php if(empty($participants)): ?>
             <tr>
-                <td colspan="5"><i>Tidak ada data</i></td>
+                <td colspan="6"><i>Tidak ada data</i></td>
             </tr>
             <?php endif ?>
             <?php foreach($participants as $key => $participant): ?>

@@ -16,9 +16,11 @@
         <label for="">No Urut</label>
         <input type="text" class="form-control" readonly value="<?=$participant->order_number?>">
     </div>
+    <?php for($i=1;$i<=session()->get('juri');$i++): ?>
     <div class="mb-3">
-        <label for="">Nilai</label>
-        <input type="number" class="form-control" name="score" min="1" max="10" required>
+        <label for="">Juri <?=$i?></label>
+        <input type="number" class="form-control" name="score[]" min="1" max="100" required>
     </div>
+    <?php endfor ?>
     <button class="btn btn-success">Simpan</button>
 </form>

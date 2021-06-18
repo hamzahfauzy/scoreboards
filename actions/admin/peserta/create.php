@@ -1,14 +1,15 @@
 <?php
+$conn    = get_connection();
+$db      = new src\Database($conn);
 if(request()->isMethod('POST'))
 {
-    $conn    = get_connection();
     $request = request()->post();
-    $db      = new src\Database($conn);
 
     $participant    = $db->insert('participants',[
         'name'      => $request->name,
         'gender'    => $request->gender,
         'status'    => 'Menunggu',
+        'category_id'     => $request->category_id,
         'order_number'    => $request->order_number,
     ]);
 
@@ -17,4 +18,8 @@ if(request()->isMethod('POST'))
     return redirect()->route('admin/peserta')->withMessage('fail','Data Gagal Disimpan!');
 }
 
-return view('admin/peserta/create');
+$categories = $db->all('categories');
+
+return view('admin/peserta/create',[
+    'categories' => $categories
+]);

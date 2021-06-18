@@ -28,7 +28,7 @@
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
                 <th>Nomor Urut</th>
-                <!-- <th>Status</th> -->
+                <th>Kategori</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -38,13 +38,16 @@
                 <td colspan="5"><i>Tidak ada data</i></td>
             </tr>
             <?php endif ?>
-            <?php foreach($participants as $key => $participant): ?>
+            <?php 
+            foreach($participants as $key => $participant): 
+
+            ?>
             <tr>
                 <td><?=++$key?></td>
                 <td><?=$participant->name?></td>
                 <td><?=$participant->gender?></td>
                 <td><?=$participant->order_number?></td>
-                <!-- <td><?=$participant->status?></td> -->
+                <td><?=$participant->cat_name?></td>
                 <td>
                     <a href="index.php?r=admin/peserta/edit&id=<?=$participant->id?>" class="btn btn-sm btn-warning">Edit</a>
                     <a href="index.php?r=admin/peserta/delete&id=<?=$participant->id?>" class="btn btn-sm btn-danger">Hapus</a>

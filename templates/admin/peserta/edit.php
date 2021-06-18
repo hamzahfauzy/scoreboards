@@ -9,6 +9,15 @@
 
 <form action="" method="post" class="col-12 col-md-6">
     <div class="mb-3">
+        <label for="">Kategori Lomba</label>
+        <select name="category_id" class="form-control" required>
+            <option value="">- Pilih -</option>
+            <?php foreach($categories as $category): ?>
+            <option value="<?=$category->id?>" <?=$participant->category_id==$category->id?'selected=""':''?>><?=$category->name?></option>
+            <?php endforeach ?>
+        </select>
+    </div>
+    <div class="mb-3">
         <label for="">Nama</label>
         <input type="text" class="form-control" name="name" value="<?=$participant->name?>" required>
     </div>

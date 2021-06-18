@@ -8,10 +8,16 @@
                 </a>
             </li>
             <?php if(session()->get('user')->level == 'admin'): ?>
+                <li class="nav-item">
+                <a class="nav-link" href="index.php?r=admin/kategori">
+                    <span data-feather="file"></span>
+                    Data Kategori
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?r=admin/juri">
                     <span data-feather="file"></span>
-                    Data Juri
+                    Data Operator
                 </a>
             </li>
             <li class="nav-item">

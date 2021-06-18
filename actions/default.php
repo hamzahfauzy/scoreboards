@@ -15,8 +15,16 @@ if(isset($_GET['realtime-request']))
         ],[
             'id' => $participant->id
         ]);
+        
+        $predikat = 'Perunggu';
+        if($participant->total_score >= 65 && $participant->total_score <= 79.99)
+            $predikat = 'Perak';
+    
+        if($participant->total_score >= 80)
+            $predikat = 'Emas';
+    
+        $participant->predikat = $predikat;
     }
-
     return $participant;
 }
 
