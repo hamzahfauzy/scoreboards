@@ -45,6 +45,9 @@
                     <?php else: ?>
                     <i>Sudah di nilai</i>
                     <?php endif ?>
+                    <?php if($participant->status == "tampil" ):?>
+                        <a href="index.php?r=juri/peserta/show&id=<?=$participant->id?>" class="btn btn-sm btn-warning">Tampilkan Nilai</a>
+                    <?php endif ?>
                 </td>
             </tr>
             <?php endforeach ?>

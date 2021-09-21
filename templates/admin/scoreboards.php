@@ -2,7 +2,8 @@
     <h1 class="h2">Scoreboards</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <a href="index.php?r=admin/cleanboards" class="btn btn-sm btn-danger">Clean Records</a>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportTableToExcel('scoreboards_data', 'Hasil Score')">Export</button>
         </div>
     </div>
 </div>
@@ -20,7 +21,7 @@
 <?php endif ?>
 
 <div class="table-responsive">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="scoreboards_data">
         <thead>
             <tr>
                 <th>No</th>
@@ -28,6 +29,9 @@
                 <th>Jenis Kelamin</th>
                 <th>Nomor Urut</th>
                 <th>Total Skor</th>
+                <th>Emas</th>
+                <th>Perak</th>
+                <th>Perunggu</th>
             </tr>
         </thead>
         <tbody>
@@ -42,9 +46,15 @@
                 <td><?=$participant->name?></td>
                 <td><?=$participant->gender?></td>
                 <td><?=$participant->order_number?></td>
-                <td><?=$participant->total_score??0?></td>
+                <td><?=$participant->total_score??0?></td> 
+                <td><?php if($participant->total_score >= 80)echo "1";else echo "0" ?></td>
+                <td><?php if($participant->total_score >= 65 && $participant->total_score <= 79.99)echo "1";else echo "0"  ?></td>
+                <td><?php if($participant->total_score <= 65 && $participant->total_score >= 0.01)echo "1";else echo "0"  ?></td>
             </tr>
             <?php endforeach ?>
         </tbody>
     </table>
 </div>
+<script type="text/javascript">
+function exportTableToExcel(e,a=""){var l,n="application/vnd.ms-excel",o=document.getElementById(e).outerHTML.replace(/ /g,"%20");a=a?a+".xls":"excel_data.xls",l=document.createElement("a"),document.body.appendChild(l),navigator.msSaveOrOpenBlob?(e=new Blob(["\ufeff",o],{type:n}),navigator.msSaveOrOpenBlob(e,a)):(l.href="data:"+n+", "+o,l.download=a,l.click())}
+</script>

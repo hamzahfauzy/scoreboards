@@ -37,6 +37,14 @@ class Database
         return $this->exec('update');
     }
 
+    function updateall($table, $val)
+    {
+        $this->table = $table;
+        $values = $this->build_values($val);
+        $this->query = "UPDATE $table SET $values";
+        return $this->exec('updateall');
+    }
+
     function all($table, $clause = [], $order = [])
     {
         $this->table = $table;
@@ -77,6 +85,15 @@ class Database
             $string = http_build_query($clause, '', ' AND ');
             $this->query .= ' WHERE '.$string;
         }
+        return $this->exec();
+    }
+
+    function truncate($table)
+    {
+        $this->table = $table;
+        $conn = $this->connection;
+        $this->query = "TRUNCATE TABLE $table";
+
         return $this->exec();
     }
 
