@@ -7,7 +7,7 @@
 }
 
 </style>
-<script type="text/javascript" src="../assets/js/fireworks.js"></script>
+<script type="text/javascript" src="assets/js/fireworks.js"></script>
 <script>
 const container = document.querySelector('.fireworks-container')
 
