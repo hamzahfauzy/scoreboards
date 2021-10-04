@@ -22,7 +22,9 @@ if(request()->isMethod('POST'))
 }
 
 $categories = $db->all('categories');
+$participant_names = $db->all('participant_names');
 return view('admin/peserta/edit',[
     'categories' => $categories,
-    'participant' => $participant
+    'participant_names' => $participant_names,
+    'participant' => $participant,
 ]);

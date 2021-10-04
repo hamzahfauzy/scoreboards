@@ -19,7 +19,9 @@ if(request()->isMethod('POST'))
 }
 
 $categories = $db->all('categories');
+$participant_names = $db->all('participant_names');
 
 return view('admin/peserta/create',[
-    'categories' => $categories
+    'categories' => $categories,
+    'participant_names' => $participant_names,
 ]);

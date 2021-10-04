@@ -19,7 +19,12 @@
     </div>
     <div class="mb-3">
         <label for="">Nama</label>
-        <input type="text" class="form-control" name="name" value="<?=$participant->name?>" required>
+        <select name="name" class="form-control" required>
+            <option value="">- Pilih -</option>
+            <?php foreach($participant_names as $p): ?>
+            <option value="<?=$p->name?>" <?=$participant->name==$p->name?'selected=""':''?>><?=$p->name?></option>
+            <?php endforeach ?>
+        </select>
     </div>
     <div class="mb-3">
         <label for="">Jenis Kelamin</label>
@@ -27,6 +32,7 @@
             <option value="">- Pilih -</option>
             <option value="Laki-laki" <?=$participant->gender=='Laki-laki'?'selected=""':''?>>Laki-laki</option>
             <option value="Perempuan" <?=$participant->gender=='Perempuan'?'selected=""':''?>>Perempuan</option>
+            <option value="Campuran" <?=$participant->gender=='Campuran'?'selected=""':''?>>Campuran</option>
         </select>
     </div>
     <div class="mb-3">

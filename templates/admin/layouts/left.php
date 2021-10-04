@@ -15,6 +15,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="index.php?r=admin/nama-peserta">
+                    <span data-feather="file"></span>
+                    Data Nama Peserta
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?r=admin/juri">
                     <span data-feather="file"></span>
                     Data Operator
