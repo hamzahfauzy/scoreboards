@@ -68,16 +68,21 @@ async function getScoreboard()
 
                 setTimeout(e => {
                     document.querySelector('.scoreboards').innerHTML = '<h2>Menunggu...</h2>'
-                    scoreboardInterval = setInterval(getScoreboard,1000)
+                    // scoreboardInterval = setInterval(getScoreboard,1000)
                     fireworks.stop();
+                    setTimeout(getScoreboard,1000)
                 }, $new_timeout = 10000)
             }
             else
                 document.querySelector('.scoreboards').innerHTML = '<h2>'+timer+'</h2>'
         },1000)
     }
+    else
+    {
+        setTimeout(getScoreboard,1000)
+    }
 }
 
 getScoreboard()
-scoreboardInterval = setInterval(getScoreboard,1000)
+// scoreboardInterval = setInterval(getScoreboard,1000)
 </script>
