@@ -33,9 +33,9 @@ const fireworks = new Fireworks({
     sound: {
         enable: true,
         list: [
-            '../assets/sounds/fireworks-boom-1.mp3',
-            '../assets/sounds/fireworks-boom-2.mp3',
-            '../assets/sounds/fireworks-whistle-1.mp3'
+            'assets/sounds/fireworks-boom-1.mp3',
+            'assets/sounds/fireworks-boom-2.mp3',
+            'assets/sounds/fireworks-whistle-1.mp3'
         ],
         min: 4,
         max: 8
@@ -47,7 +47,7 @@ async function getScoreboard()
 {
     var request = await fetch('index.php?realtime-request=true');
     var response = await request.text();
-    const claps = new Audio("../assets/sounds/claps.mp3");
+    const claps = new Audio("assets/sounds/claps.mp3");
 
     if(response)
     {

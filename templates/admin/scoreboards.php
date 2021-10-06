@@ -27,6 +27,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
+                <th>Kategori</th>
                 <th>Nomor Urut</th>
                 <th>Total Skor</th>
                 <th>Emas</th>
@@ -45,6 +46,7 @@
                 <td><?=++$key?></td>
                 <td><?=$participant->name?></td>
                 <td><?=$participant->gender?></td>
+                <td><?=$participant->cat_name?></td>
                 <td><?=$participant->order_number?></td>
                 <td><?=$participant->total_score??0?></td> 
                 <td><?php if($participant->total_score >= 80)echo "1";else echo "0" ?></td>
