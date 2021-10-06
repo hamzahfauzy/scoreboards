@@ -75,7 +75,7 @@ async function getScoreboard()
                     // scoreboardInterval = setInterval(getScoreboard,1000)
                     fireworks.stop();
                     setTimeout(getScoreboard,1000)
-                }, $new_timeout = 10000)
+                }, $new_timeout = 30000)
             }
             else
                 document.querySelector('.scoreboards').innerHTML = '<h2>'+timer+'</h2>'
