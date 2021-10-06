@@ -47,10 +47,10 @@ async function getScoreboard()
 {
     var request = await fetch('index.php?realtime-request=true');
     var response = await request.text();
-    const claps = new Audio("assets/sounds/claps.mp3");
 
     if(response)
     {
+        const claps = new Audio("assets/sounds/claps.mp3");
         clearInterval(scoreboardInterval)
         response = JSON.parse(response)
         var timer = 5
