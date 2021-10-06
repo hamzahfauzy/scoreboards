@@ -6,6 +6,10 @@
 .fireworks-container {position: fixed;left: 0;top: 0;width: 100%;height: 100%;background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;z-index: -10;
 }
 
+.scoreboards h2 {
+    font-size:100px;
+}
+
 </style>
 <script type="text/javascript" src="assets/js/fireworks.js"></script>
 <script>
