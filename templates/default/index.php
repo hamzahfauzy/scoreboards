@@ -74,7 +74,7 @@ async function getScoreboard()
                     document.querySelector('.scoreboards').innerHTML = '<h2>Menunggu...</h2>'
                     // scoreboardInterval = setInterval(getScoreboard,1000)
                     fireworks.stop();
-                    setTimeout(getScoreboard,1000)
+                    getScoreboard()
                 }, $new_timeout = 30000)
             }
             else
