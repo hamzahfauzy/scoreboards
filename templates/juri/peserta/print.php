@@ -13,7 +13,7 @@
         <table class="table table-bordered">
             <tr>
                 <?php
-                $skor = unserialize($participant->score_serialize);
+                $skor = unserialize($valuation->score_serialize);
                 foreach($skor as $key => $value): 
                 ?>
                 <td>JURI <?=($key+1)?></td>
@@ -24,7 +24,7 @@
                 <?php foreach($skor as $key => $value): ?>
                 <td><?=$value?></td>
                 <?php endforeach ?>
-                <td><?=$participant->score?></td>
+                <td><?=$valuation->score?></td>
             </tr>
         </table>
     </div>
