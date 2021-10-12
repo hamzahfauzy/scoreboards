@@ -9,4 +9,4 @@ $valuation   = $db->single('valuations',[
     'participant_id' => $participant->id,
 ]);
 
-return view('juri/peserta/print',['participant' => $participant,'valuation'=>$valuation]);
+return partial('juri/peserta/print',['participant' => $participant,'valuation'=>$valuation]);

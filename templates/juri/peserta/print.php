@@ -10,7 +10,7 @@
         <label for="">Jenis Kelamin : <b><?=$participant->gender?></b></label>
     </div>
     <div>
-        <table class="table table-bordered">
+        <table border="1">
             <tr>
                 <?php
                 $skor = unserialize($valuation->score_serialize);
