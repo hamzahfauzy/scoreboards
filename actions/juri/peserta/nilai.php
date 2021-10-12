@@ -35,7 +35,8 @@ if(request()->isMethod('POST'))
     {
         $db->update('participants',[
             'total_score' => $total_score,
-            'status'      => 'selesai'
+            'status'      => 'tampil'
+            // 'status'      => 'selesai'
         ],[
             'id' => $id
         ]);

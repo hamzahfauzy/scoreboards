@@ -43,7 +43,8 @@
                     <?php if($participant->score == null): ?>
                     <a href="index.php?r=juri/peserta/nilai&id=<?=$participant->id?>" class="btn btn-sm btn-warning">Nilai</a>
                     <?php else: ?>
-                    <i>Sudah di nilai</i>
+                    <i>Sudah di nilai</i><br>
+                    <a href="index.php?r=juri/peserta/print&id=<?=$participant->id?>" class="btn btn-sm btn-warning">Cetak</a>
                     <?php endif ?>
                     <?php if($participant->status == "tampil" ):?>
                         <a href="index.php?r=juri/peserta/show&id=<?=$participant->id?>" class="btn btn-sm btn-warning">Tampilkan Nilai</a>
