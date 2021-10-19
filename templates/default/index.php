@@ -65,7 +65,7 @@ async function getScoreboard()
             if(timer == 0)
             {
                 clearInterval(countdown)
-                document.querySelector('.scoreboards').innerHTML = '<h2>'+response.name+' <br>'+response.total_score+'<br>'+response.predikat+'</h2>'
+                document.querySelector('.scoreboards').innerHTML = '<h2>'+response.name+' <br>'+response.category.name+' <br>'+response.total_score+'<br>'+response.predikat+'</h2>'
                 $new_timeout = 2 * 60 * 1000;
                 claps.play();
                 fireworks.start();

@@ -10,12 +10,16 @@ if(isset($_GET['realtime-request']))
     ]);
     if($participant)
     {
+        $category = $db->single('categories',[
+            'id' => $participant->category_id
+        ]);
         $db->update('participants',[
             'status' => 'tampil'
         ],[
             'id' => $participant->id
         ]);
         
+        $participant->category = $category;
         $predikat = 'Perunggu';
         if($participant->total_score >= 65 && $participant->total_score <= 79.99)
             $predikat = 'Perak';

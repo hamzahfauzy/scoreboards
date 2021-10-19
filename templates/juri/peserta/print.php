@@ -7,10 +7,13 @@
         <label for="">Nama : <b><?=$participant->name?></b></label>
     </div>
     <div class="mb-3">
+        <label for="">Kategori Lomba : <b><?= session()->get('kategori')->name ?></b></label>
+    </div>
+    <div class="mb-3">
         <label for="">Jenis Kelamin : <b><?=$participant->gender?></b></label>
     </div>
     <div>
-        <table border="1">
+        <table border="1" width="100%">
             <tr>
                 <?php
                 $skor = unserialize($valuation->score_serialize);
@@ -25,6 +28,14 @@
                 <td><?=$value?></td>
                 <?php endforeach ?>
                 <td><?=$valuation->score?></td>
+            </tr>
+        </table>
+        <br><br><br><br>
+        <table>
+            <tr>
+                <?php foreach($skor as $key => $value): ?>
+                <td>JURI <?=($key+1)?></td>
+                <?php endforeach ?>
             </tr>
         </table>
     </div>
