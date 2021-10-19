@@ -48,5 +48,6 @@ if(request()->isMethod('POST'))
 }
 
 return view('juri/peserta/edit',[
-    'participant' => $participant
+    'participant' => $participant,
+    'valuation'   => $valuation
 ]);
