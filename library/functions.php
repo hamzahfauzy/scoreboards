@@ -1,6 +1,7 @@
 <?php
 session_start();
 $connection = require 'connection.php';
+$public_path = '../public/';
 
 function base_url()
 {
@@ -16,6 +17,26 @@ function get_connection()
 {
     global $connection;
     return $connection['connection'];
+}
+
+function get_content_json($filename)
+{
+    global $public_path;
+    $file_path = $public_path.$filename.'.json';
+
+    if(!file_exists($file_path))
+        return false;
+
+    $file = file_get_contents($file_path);
+    return json_decode($file);
+}
+
+function set_content_json($filename,$content,$mode='rewrite') // type: rewrite, append
+{
+    global $public_path;
+    $mode = $mode == 'rewrite' ? FILE_USE_INCLUDE_PATH : FILE_USE_INCLUDE_PATH | FILE_APPEND;
+    $file_path = $public_path.$filename.'.json';
+    return file_put_contents($file_path,$content,$mode);
 }
 
 function render($template, $data = [], $type = 'partial')

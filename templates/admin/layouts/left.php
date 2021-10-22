@@ -38,6 +38,12 @@
                     Scoreboards
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?r=admin/setting">
+                    <span data-feather="file"></span>
+                    Setting
+                </a>
+            </li>
             <?php else: ?>
                 <li class="nav-item">
                 <a class="nav-link" href="index.php?r=juri/peserta">
