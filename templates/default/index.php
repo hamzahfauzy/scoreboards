@@ -65,7 +65,7 @@ async function getScoreboard()
             if(timer == 0)
             {
                 clearInterval(countdown)
-                document.querySelector('.scoreboards').innerHTML = '<h2>'+response.name+' <br>'+response.category.name+' <br>'+response.total_score+'<br>'+response.predikat+'</h2>'
+                document.querySelector('.scoreboards').innerHTML = '<span style="font-size:'+response.setting.nama_peserta+'">'+response.name+'</span><br><span style="font-size:'+response.setting.kategori+'">'+response.category.name+'</span><br><span style="font-size:'+response.setting.skor+'">'+response.total_score+'</span><br><span style="font-size:'+response.setting.predikat+'">'+response.predikat+'</span>'
                 $new_timeout = 2 * 60 * 1000;
                 claps.play();
                 fireworks.start();
@@ -78,7 +78,7 @@ async function getScoreboard()
                 }, $new_timeout = 30000)
             }
             else
-                document.querySelector('.scoreboards').innerHTML = '<h2>'+timer+'</h2>'
+                document.querySelector('.scoreboards').innerHTML = '<span style="font-size:'+response.setting.countdown+'">'+timer+'</span>'
         },1000)
     }
     else

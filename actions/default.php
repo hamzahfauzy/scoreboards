@@ -8,6 +8,7 @@ if(isset($_GET['realtime-request']))
     $participant = $db->single('participants',[
         'status' => 'selesai'
     ]);
+    $all_fields  = get_content_json('setting');
     if($participant)
     {
         $category = $db->single('categories',[
@@ -20,6 +21,7 @@ if(isset($_GET['realtime-request']))
         ]);
         
         $participant->category = $category;
+        $participant->setting = $all_fields;
         $predikat = 'Perunggu';
         if($participant->total_score >= 65 && $participant->total_score <= 79.99)
             $predikat = 'Perak';
