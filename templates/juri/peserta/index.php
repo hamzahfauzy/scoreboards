@@ -41,7 +41,7 @@
                 <td><?=$participant->score??0?></td>
                 <td>
                     <?php if($participant->score == null): ?>
-                    <a href="index.php?r=juri/peserta/nilai&id=<?=$participant->idZ?>" class="btn btn-sm btn-primary">Nilai</a>
+                    <a href="index.php?r=juri/peserta/nilai&id=<?=$participant->id?>" class="btn btn-sm btn-primary">Nilai</a>
                     <?php else: ?>
                         <i>Sudah di nilai</i><br>
                     <a href="index.php?r=juri/peserta/edit&id=<?=$participant->val_id?>" class="btn btn-sm btn-primary">Edit</a>
